@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradeX Pro</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ================= LOGIN ================= -->
+    <div id="authScreen" class="auth-screen">
+      <div class="auth-box">
+        <div class="auth-logo"><span>◆</span> TradeX</div>
+
+        <p class="auth-subtitle">Professional Demo Trading</p>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="loginTab">Login</button>
+          <button class="auth-tab" id="registerTab">Register</button>
+        </div>
+
+        <form id="loginForm">
+          <label>Email</label>
+          <input
+            id="loginEmail"
+            type="email"
+            placeholder="example@gmail.com"
+            required
+          />
+
+          <label>Password</label>
+          <input
+            id="loginPassword"
+            type="password"
+            placeholder="••••••••"
+            required
+          />
+
+          <button class="auth-button" type="submit">Login →</button>
+        </form>
+
+        <form id="registerForm" class="hidden">
+          <label>Full name</label>
+          <input
+            id="registerName"
+            type="text"
+            placeholder="Your name"
+            required
+          />
+
+          <label>Email</label>
+          <input
+            id="registerEmail"
+            type="email"
+            placeholder="example@gmail.com"
+            required
+          />
+
+          <label>Password</label>
+          <input
+            id="registerPassword"
+            type="password"
+            placeholder="Create password"
+            required
+          />
+
+          <button class="auth-button" type="submit">Create Account →</button>
+        </form>
+
+        <div class="demo-note">
+          <span>●</span>
+           Account — virtual money only
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= APP ================= -->
+    <div id="app" class="app hidden">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-icon">◆</span>
+          <span>TradeX</span>
+          <small>PRO</small>
+        </div>
+
+        <div class="top-symbol">
+          <strong id="topSymbol">BTC/USD</strong>
+          <span id="topPrice">$83,750.00</span>
+          <span class="up" id="topChange">+2.48%</span>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-btn">⚙</button>
+
+          <button id="profileBtn" class="profile-button">
+            <div class="avatar" id="avatar">A</div>
+
+            <div>
+              <strong id="userName">Trader</strong>
+              <small>Account</small>
+            </div>
+
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ACCOUNT BAR -->
+      <div class="account-bar">
+        <div>
+          <span>Balance</span>
+          <strong id="balance">$100,000.00</strong>
+        </div>
+
+        <div>
+          <span>Today P&L</span>
+          <strong class="up" id="pnl">+$0.00</strong>
+        </div>
+
+        <div>
+          <span>Positions</span>
+          <strong id="positionCount">0</strong>
+        </div>
+
+        <div class="demo-badge">● Yashil</div>
+      </div>
+
+      <!-- MAIN -->
+      <main class="main-grid">
+        <!-- MARKETS -->
+        <aside class="markets panel">
+          <div class="panel-title">
+            <strong>Markets</strong>
+            <span>24h</span>
+          </div>
+
+          <div class="market active" data-symbol="BTC/USD" data-price="83750">
+            <div>
+              <strong>BTC/USD</strong>
+              <small>Bitcoin</small>
+            </div>
+
+            <div>
+              <strong>$83,750</strong>
+              <small class="up">+2.48%</small>
+            </div>
+          </div>
+
+          <div class="market" data-symbol="ETH/USD" data-price="4260">
+            <div>
+              <strong>ETH/USD</strong>
+              <small>Ethereum</small>
+            </div>
+
+            <div>
+              <strong>$4,260</strong>
+              <small class="up">+1.72%</small>
+            </div>
+          </div>
+
+          <div class="market" data-symbol="SOL/USD" data-price="205">
+            <div>
+              <strong>SOL/USD</strong>
+              <small>Solana</small>
+            </div>
+
+            <div>
+              <strong>$205</strong>
+              <small class="up">+3.21%</small>
+            </div>
+          </div>
+
+          <div class="market" data-symbol="XRP/USD" data-price="0.78">
+            <div>
+              <strong>XRP/USD</strong>
+              <small>XRP</small>
+            </div>
+
+            <div>
+              <strong>$0.78</strong>
+              <small class="down">-0.64%</small>
+            </div>
+          </div>
+
+          <div class="market" data-symbol="DOGE/USD" data-price="0.19">
+            <div>
+              <strong>DOGE/USD</strong>
+              <small>Dogecoin</small>
+            </div>
+
+            <div>
+              <strong>$0.19</strong>
+              <small class="up">+4.12%</small>
+            </div>
+          </div>
+        </aside>
+
+        <!-- CHART -->
+        <section class="chart-panel panel">
+          <div class="chart-header">
+            <div>
+              <strong id="chartSymbol">BTC/USD</strong>
+
+              <div class="ohlc">
+                O <span id="openPrice">83,500</span> H
+                <span id="highPrice">84,100</span> L
+                <span id="lowPrice">83,200</span> C
+                <span id="closePrice">83,750</span>
+              </div>
+            </div>
+
+            <div class="timeframes">
+              <button>1m</button>
+              <button class="active">5m</button>
+              <button>15m</button>
+              <button>1H</button>
+              <button>4H</button>
+              <button>1D</button>
+            </div>
+          </div>
+
+          <div class="chart-tools">
+            <button id="gridBtn">▦ Grid</button>
+            <button id="crosshairBtn">＋ Crosshair</button>
+            <button id="fullscreenBtn">⛶</button>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="tradingChart"></canvas>
+          </div>
+        </section>
+
+        <!-- TRADE PANEL -->
+        <aside class="trade-panel panel">
+          <div class="trade-tabs">
+            <button id="buyBtn" class="buy active">BUY</button>
+
+            <button id="sellBtn" class="sell">SELL</button>
+          </div>
+
+          <div class="current-price">
+            <small>Current price</small>
+            <strong id="tradePrice">$83,750.00</strong>
+          </div>
+
+          <label>Amount</label>
+
+          <div class="amount-box">
+            <span>$</span>
+            <input id="amountInput" type="number" value="100" />
+          </div>
+
+          <div class="quick-values">
+            <button data-value="100">$100</button>
+            <button data-value="500">$500</button>
+            <button data-value="1000">$1K</button>
+            <button data-value="5000">$5K</button>
+          </div>
+
+          <div class="trade-info">
+            <div>
+              <span>Fee</span>
+              <strong id="fee">$0.10</strong>
+            </div>
+
+            <div>
+              <span>Total</span>
+              <strong id="total">$100.10</strong>
+            </div>
+          </div>
+
+          <button id="tradeBtn" class="trade-submit">BUY BTC</button>
+
+          <div class="available">
+            Available
+            <strong id="availableBalance">$100,000.00</strong>
+          </div>
+        </aside>
+      </main>
+
+      <!-- BOTTOM -->
+      <section class="bottom-panel panel">
+        <div class="bottom-tabs">
+          <button class="bottom-tab active">
+            Positions
+            <span id="positionBadge">0</span>
+          </button>
+
+          <button class="bottom-tab">Orders</button>
+
+          <button class="bottom-tab">History</button>
+        </div>
+
+        <div id="positionsContainer" class="empty-state">No open positions</div>
+      </section>
+    </div>
+
+    <!-- ================= PROFILE MODAL ================= -->
+
+    <div id="profileModal" class="modal">
+      <div class="profile-modal">
+        <button id="closeProfile" class="close-modal">×</button>
+
+        <div class="profile-header">
+          <div class="big-avatar" id="profileAvatar">A</div>
+
+          <div>
+            <h2 id="profileName">Trader</h2>
+            <p id="profileEmail">demo@example.com</p>
+          </div>
+        </div>
+
+        <div class="profile-balance">
+          <span>Account Balance</span>
+          <strong id="profileBalance">$100,000.00</strong>
+          <small>Account</small>
+        </div>
+
+        <!-- CARD -->
+        <div class="plastic-card">
+          <div class="card-top">
+            <strong>TradeX</strong>
+            <span></span>
+          </div>
+
+          <div class="chip"></div>
+
+          <div class="card-number">5399&nbsp; 4821&nbsp; 7720&nbsp; 1842</div>
+
+          <div class="card-bottom">
+            <div>
+              <small>CARD HOLDER</small>
+              <strong id="cardHolder">TRADER</strong>
+            </div>
+
+            <div>
+              <small>EXPIRES</small>
+              <strong>12/30</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button> Account Settings</button>
+
+          <button> Security</button>
+
+          <button id="logoutBtn" class="logout">↪ Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast">Done</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
